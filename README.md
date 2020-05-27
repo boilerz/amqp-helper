@@ -1,26 +1,25 @@
-# @boilerz/boilerplate-lib
+# @boilerz/amqp-helper
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/boilerz/boilerplate-lib/blob/master/LICENSE)
-[![GitHub forks](https://img.shields.io/github/forks/boilerz/boilerplate-lib?label=Fork%20me)](https://github.com/boilerz/boilerplate-lib/fork)
-[![CircleCI](https://circleci.com/gh/boilerz/boilerplate-lib/tree/master.svg?style=shield)](https://circleci.com/gh/boilerz/boilerplate-lib/tree/master)
-[![codecov](https://codecov.io/gh/boilerz/boilerplate-lib/branch/master/graph/badge.svg)](https://codecov.io/gh/boilerz/boilerplate-lib)
+[![GitHub package.json version](https://img.shields.io/github/package-json/v/boilerz/amqp-helper)](https://www.npmjs.com/package/@boilerz/amqp-helper)
+[![CircleCI](https://circleci.com/gh/boilerz/amqp-helper/tree/master.svg?style=shield)](https://circleci.com/gh/boilerz/amqp-helper/tree/master)
+[![codecov](https://codecov.io/gh/boilerz/amqp-helper/branch/master/graph/badge.svg)](https://codecov.io/gh/boilerz/amqp-helper)
 
-> Boilerplate lib.
+> AMQP helper
 
-### Setup
-
-1. Fork the project or manually run:
-```bash
-git clone git@github.com:boilerz/boilerplate-lib.git my-lib
-cd my-lib
-git remote set-url origin git@github.com:gh_user/my-lib
-```
-
-Then after pull run:
+### Install
 
 ```bash
-yarn install
-yarn custom
+yarn add -D @boilerz/amqp-helper
 ```
 
-2. Add `CODECOV_TOKEN` env var on the CI settings of the project.
+### Usage
+
+// ...
+
+### Release
+
+```bash
+yarn version
+yarn build
+yarn publish dist --access public
+```
