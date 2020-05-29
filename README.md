@@ -9,12 +9,12 @@
 ### Install
 
 ```bash
-yarn add -D @boilerz/amqp-helper
+npx install-peerdeps @boilerz/amqp-helper
 ```
 
 ### Usage
 
-// ...
+@see code [examples](./examples/)
 
 ### Release
 
