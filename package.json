@@ -14,7 +14,7 @@
     "codecov": "codecov",
     "start:example:publisher": "ts-node-dev examples/publisher.ts",
     "start:example:single-handler-consumer": "ts-node-dev examples/single-handler-consumer.ts",
-    "start:example:multi-handler-consumer": "ts-node-dev examples/multi-handler-consumer.ts"
+    "start:example:multi-handler-consumer": "ts-node-dev examples/multi-handlers-consumer.ts"
   },
   "peerDependencies": {
     "@boilerz/logger": "^1.0.7",

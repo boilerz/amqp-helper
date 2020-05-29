@@ -2,7 +2,7 @@ import logger from '@boilerz/logger';
 import ConsumerClient from '../src/ConsumerClient';
 import type { Message, RootingKey } from './publisher';
 
-async function multiHandlerConsumerMain() {
+async function multiHandlerConsumerMain(): Promise<void> {
   const consumerClient = await ConsumerClient.createAndSetupClient<
     Message,
     RootingKey
@@ -22,5 +22,7 @@ async function multiHandlerConsumerMain() {
 }
 
 if (!module.parent) {
-  multiHandlerConsumerMain().catch(console.error);
+  multiHandlerConsumerMain().catch((err) =>
+    logger.error({ err }, '[multi-handlers-consumer]'),
+  );
 }

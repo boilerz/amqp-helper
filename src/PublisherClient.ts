@@ -1,4 +1,4 @@
-import { Options } from 'amqplib/properties';
+import { Options } from 'amqplib';
 import Client, { ClientOptions } from './Client';
 
 export interface PublishOptions extends Options.Publish {

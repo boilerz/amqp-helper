@@ -2,7 +2,7 @@ import logger from '@boilerz/logger';
 import ConsumerClient from '../src/ConsumerClient';
 import type { Message } from './publisher';
 
-async function singleHandlerConsumerMain() {
+async function singleHandlerConsumerMain(): Promise<void> {
   const consumerClient = await ConsumerClient.createAndSetupClient<Message>({
     queueName: 'hello-goodbye-queue',
     async onMessageHandler(message, rootingKey): Promise<void> {
@@ -14,5 +14,7 @@ async function singleHandlerConsumerMain() {
 }
 
 if (!module.parent) {
-  singleHandlerConsumerMain().catch(console.error);
+  singleHandlerConsumerMain().catch((err) =>
+    logger.error({ err }, '[single-handler-consumer]'),
+  );
 }

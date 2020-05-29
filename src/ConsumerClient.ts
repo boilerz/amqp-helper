@@ -1,5 +1,5 @@
 import logger from '@boilerz/logger';
-import { Options } from 'amqplib/properties';
+import { Options } from 'amqplib';
 import _ from 'lodash';
 import Client, { ClientOptions } from './Client';
 
@@ -155,6 +155,7 @@ class ConsumerClient<
           if (this.onMessageHandler) {
             await this.onMessageHandler(message, routingKey as string);
           } else {
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
             await this.onMessageHandlerByRootingKey![routingKey](message);
           }
           this.channel.ack(consumeMessage);

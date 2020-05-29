@@ -1,3 +1,4 @@
+import logger from '@boilerz/logger';
 import PublisherClient from '../src/PublisherClient';
 
 export type RootingKey = 'hello' | 'goodbye';
@@ -6,7 +7,7 @@ export type Message = {
   name: string;
 };
 
-async function publisherMain() {
+async function publisherMain(): Promise<void> {
   const publisherClient = await PublisherClient.createAndSetupClient<
     Message,
     RootingKey
@@ -27,5 +28,5 @@ async function publisherMain() {
 }
 
 if (!module.parent) {
-  publisherMain().catch(console.error);
+  publisherMain().catch((err) => logger.error({ err }, '[publisher]'));
 }
