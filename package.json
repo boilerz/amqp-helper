@@ -44,5 +44,7 @@
   "resolutions": {
     "eslint/mkdirp/minimist": "^1.2.5"
   },
-  "dependencies": {}
+  "dependencies": {
+    "waait": "^1.0.5"
+  }
 }

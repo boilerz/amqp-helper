@@ -1,6 +1,7 @@
 import logger from '@boilerz/logger';
 import { Options } from 'amqplib';
 import _ from 'lodash';
+import wait from 'waait';
 import Client, { ClientOptions } from './Client';
 
 export type OnMessageHandler<M = any> = (
@@ -18,6 +19,7 @@ export interface ConsumerClientOptions<
   RKey extends keyof any
 > extends Partial<ClientOptions> {
   queueName?: string;
+  queueOptions?: Options.AssertQueue;
 }
 
 export interface SingleHandlerConsumerClientOptions<
@@ -38,7 +40,9 @@ class ConsumerClient<
   Msg extends Record<string, any> = any,
   RKey extends keyof any = ''
 > extends Client {
-  private readonly queueName: string;
+  private queueOptions: Options.AssertQueue;
+
+  private queueName: string;
 
   private readonly onMessageHandler?: OnMessageHandler<Msg>;
 
@@ -53,6 +57,7 @@ class ConsumerClient<
 
   constructor({
     queueName = '',
+    queueOptions = {},
     ...singleOrMultiOptions
   }:
     | SingleHandlerConsumerClientOptions<Msg, RKey>
@@ -65,6 +70,7 @@ class ConsumerClient<
       ),
     );
     this.queueName = queueName;
+    this.queueOptions = queueOptions;
     this.onMessageHandler = (singleOrMultiOptions as SingleHandlerConsumerClientOptions<
       Msg,
       RKey
@@ -79,10 +85,9 @@ class ConsumerClient<
     await super.setup();
     const { queue: actualQueueName } = await this.channel.assertQueue(
       this.queueName,
-      {
-        durable: true,
-      },
+      this.queueOptions,
     );
+    this.queueName = actualQueueName;
     logger.info({ actualQueueName }, '[amqp-helper] setup');
 
     if (this.onMessageHandlerByRootingKey) {
@@ -156,7 +161,15 @@ class ConsumerClient<
             await this.onMessageHandler(message, routingKey as string);
           } else {
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            await this.onMessageHandlerByRootingKey![routingKey](message);
+            const handler = this.onMessageHandlerByRootingKey![routingKey];
+            if (handler) {
+              await handler(message);
+            } else {
+              logger.warn(
+                { routingKey },
+                '[amqp-helper] consume - No handler found',
+              );
+            }
           }
           this.channel.ack(consumeMessage);
         } catch (err) {
@@ -167,8 +180,18 @@ class ConsumerClient<
           this.channel.nack(consumeMessage);
         }
       },
-      options || { noAck: false },
+      { noAck: false, ...options },
     );
+  }
+
+  async waitEmptiness(): Promise<void> {
+    await wait(100);
+    const { messageCount } = await this.channel.checkQueue(this.queueName);
+    if (messageCount === 0) return;
+
+    logger.info({ messageCount }, '[amqp-helper] Waiting more ...');
+    await wait(100);
+    await this.waitEmptiness();
   }
 }
 

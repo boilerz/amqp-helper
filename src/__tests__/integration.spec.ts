@@ -29,7 +29,7 @@ describe('Publisher/Consumer integration test', () => {
       RootingKey
     >();
     consumerClient = await ConsumerClient.createAndSetupClient<Message>({
-      queueName: 'single-handler-scenario-queue',
+      queueOptions: { exclusive: true },
       async onMessageHandler(message, rootingKey): Promise<void> {
         handlerSpy({ message, rootingKey }, 'single handler consumer');
       },
@@ -39,6 +39,7 @@ describe('Publisher/Consumer integration test', () => {
       name: 'John Doe',
     });
     await consumerClient.consume();
+    await consumerClient.waitEmptiness();
 
     expect(handlerSpy).toMatchInlineSnapshot(`
       [MockFunction] {
@@ -72,7 +73,7 @@ describe('Publisher/Consumer integration test', () => {
       Message,
       RootingKey
     >({
-      queueName: 'multi-handler-scenario-queue',
+      queueOptions: { exclusive: true },
       onMessageHandlerByRootingKey: {
         async hello(message: Message): Promise<void> {
           handlerSpy({ message }, 'hello');
@@ -96,6 +97,7 @@ describe('Publisher/Consumer integration test', () => {
       'goodbye',
     );
     await consumerClient.consume();
+    await consumerClient.waitEmptiness();
 
     expect(handlerSpy).toMatchInlineSnapshot(`
       [MockFunction] {
