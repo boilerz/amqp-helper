@@ -17,7 +17,7 @@ abstract class Client {
   protected channel: Channel;
 
   private static defaultOptions: ClientOptions = {
-    amqpUrl: 'amqp://localhost',
+    amqpUrl: 'amqp://localhost:5672',
     exchangeName: `${path.basename(process.cwd())}-exchange`,
     exchangeType: 'fanout',
     exchangeOptions: {
