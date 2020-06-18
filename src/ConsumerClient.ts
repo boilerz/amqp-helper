@@ -20,6 +20,7 @@ export interface ConsumerClientOptions<
 > extends Partial<ClientOptions> {
   queueName?: string;
   queueOptions?: Options.AssertQueue;
+  nAckThrottle?: number;
 }
 
 export interface SingleHandlerConsumerClientOptions<
@@ -40,7 +41,9 @@ class ConsumerClient<
   Msg extends Record<string, any> = any,
   RKey extends keyof any = ''
 > extends Client {
-  private queueOptions: Options.AssertQueue;
+  private readonly queueOptions: Options.AssertQueue;
+
+  private readonly nAckThrottle: number;
 
   private queueName: string;
 
@@ -58,6 +61,7 @@ class ConsumerClient<
   constructor({
     queueName = '',
     queueOptions = {},
+    nAckThrottle = 0,
     ...singleOrMultiOptions
   }:
     | SingleHandlerConsumerClientOptions<Msg, RKey>
@@ -71,6 +75,7 @@ class ConsumerClient<
     );
     this.queueName = queueName;
     this.queueOptions = queueOptions;
+    this.nAckThrottle = nAckThrottle;
     this.onMessageHandler = (singleOrMultiOptions as SingleHandlerConsumerClientOptions<
       Msg,
       RKey
@@ -177,6 +182,7 @@ class ConsumerClient<
             { err, routingKey, message },
             '[amqp-helper] consume - Handler failure',
           );
+          await wait(this.nAckThrottle);
           this.channel.nack(consumeMessage);
         }
       },
