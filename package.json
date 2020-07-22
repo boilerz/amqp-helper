@@ -30,15 +30,15 @@
     "@sentry/node": "^5.20.0",
     "@types/amqplib": "^0.5.13",
     "@types/jest": "^26.0.5",
-    "@types/lodash": "^4.14.157",
     "amqplib": "^0.6.0",
+    "@types/lodash": "^4.14.158",
     "codecov": "^3.7.2",
     "eslint": "^6.8.0",
     "jest": "^25.5.4",
     "lodash": "^4.17.19",
     "prettier": "^2.0.5",
     "ts-jest": "^25.5.1",
-    "ts-node-dev": "^1.0.0-pre.49",
+    "ts-node-dev": "^1.0.0-pre.52",
     "typescript": "^3"
   },
   "resolutions": {
