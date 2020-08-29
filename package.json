@@ -31,7 +31,7 @@
     "@types/amqplib": "^0.5.13",
     "@types/jest": "^26.0.9",
     "amqplib": "^0.6.0",
-    "@types/lodash": "^4.14.160",
+    "@types/lodash": "^4.14.161",
     "codecov": "^3.7.2",
     "eslint": "^6.8.0",
     "jest": "^25.5.4",
