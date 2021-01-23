@@ -43,5 +43,8 @@
   },
   "dependencies": {
     "waait": "^1.0.5"
+  },
+  "resolutions": {
+    "node-notifier": "^9.0.0"
   }
 }
