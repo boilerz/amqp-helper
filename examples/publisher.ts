@@ -1,4 +1,5 @@
 import logger from '@boilerz/logger';
+
 import PublisherClient from '../src/PublisherClient';
 
 export type RootingKey = 'hello' | 'goodbye';

@@ -1,5 +1,6 @@
 import path from 'path';
 import process from 'process';
+
 import amqplib, { Channel, Connection, Options } from 'amqplib';
 
 export interface ClientOptions {

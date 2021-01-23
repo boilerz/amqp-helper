@@ -1,4 +1,5 @@
 import logger from '@boilerz/logger';
+
 import ConsumerClient from '../src/ConsumerClient';
 import type { Message, RootingKey } from './publisher';
 

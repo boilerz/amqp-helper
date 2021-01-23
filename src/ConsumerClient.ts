@@ -1,7 +1,9 @@
-import logger from '@boilerz/logger';
 import { Options } from 'amqplib';
 import _ from 'lodash';
 import wait from 'waait';
+
+import logger from '@boilerz/logger';
+
 import Client, { ClientOptions } from './Client';
 
 export type OnMessageHandler<M = any> = (

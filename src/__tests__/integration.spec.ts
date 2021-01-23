@@ -1,5 +1,5 @@
-import PublisherClient from '../PublisherClient';
 import ConsumerClient from '../ConsumerClient';
+import PublisherClient from '../PublisherClient';
 
 export type RootingKey = 'hello' | 'goodbye';
 
