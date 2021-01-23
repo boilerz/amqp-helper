@@ -41,9 +41,6 @@
     "ts-node-dev": "^1.1.1",
     "typescript": "^3"
   },
-  "resolutions": {
-    "eslint/mkdirp/minimist": "^1.2.5"
-  },
   "dependencies": {
     "waait": "^1.0.5"
   }
