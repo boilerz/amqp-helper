@@ -277,7 +277,7 @@
   resolved "https://registry.yarnpkg.com/@boilerz/build-tools/-/build-tools-1.4.1.tgz#2ebe6fbc452a7ca5f979a3c23c7c3fc0edac8ccb"
   integrity sha512-BS1McRGJ+KEUCqS0nBjZduevX+kr67esRqsC5Vpgr5vUtoDGohNiwcdAZGKphHUlXFky75gvf9eQu+yxoJ9RCQ==
 
-"@boilerz/eslint-config@2.0.1":
+"@boilerz/eslint-config@^2.0.1":
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@boilerz/eslint-config/-/eslint-config-2.0.1.tgz#44d0174b00c9ddcc3079b3270ec27fabbe511559"
   integrity sha512-uK+jN2PavlQjothvHz5VPM+h2OGwERdyd3dhSpABVRNxLdxREa3TbdvR7WFnHo5eq56ui8jT+oU6ZSS/pbXLdg==
@@ -308,10 +308,10 @@
   resolved "https://registry.yarnpkg.com/@boilerz/prettier-config/-/prettier-config-1.0.0.tgz#5fbbc39512390c2f91bf16f0568c601f93d6fdd7"
   integrity sha512-mM5neNrNdV79wRFFuKutFBAV56ndIGf1CjB66DUtz7pizHStuFxMtnJgGvHDQEKotCxt3F1L1jEtPh72EUEUZg==
 
-"@boilerz/tsconfig@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@boilerz/tsconfig/-/tsconfig-1.3.0.tgz#e00e7f6910893ed1640ae4843b5e4cd42b9dedec"
-  integrity sha512-GRVUnhbJjiNQ9Vw16YcQjOFafQ1XBWJbNhFZeVVdTm0XwisYcZNzYKq+BXe08U9RPpbO+Ncjuvrds9JHPEOqCw==
+"@boilerz/tsconfig@^1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@boilerz/tsconfig/-/tsconfig-1.3.1.tgz#79c9c46ad6b1da2894caa372774d20b95348204b"
+  integrity sha512-Xsv6K4/+kARSpXV3aBl3hMa13ODtFcytqCZLBv9xbu1wCxRjsnQ77DsxhaZuGReJR0TChTaYx05d5dWV5KrB+w==
 
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
