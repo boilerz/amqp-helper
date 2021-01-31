@@ -17,14 +17,14 @@
     "start:example:multi-handler-consumer": "ts-node-dev examples/multi-handlers-consumer.ts"
   },
   "peerDependencies": {
-    "@boilerz/logger": "^1.0.7",
+    "@boilerz/logger": "^1.1.11",
     "amqplib": "^0.6.0",
     "lodash": "^4.17.20"
   },
   "devDependencies": {
     "@boilerz/build-tools": "^1.4.6",
     "@boilerz/eslint-config": "^2.0.3",
-    "@boilerz/logger": "1.1.10",
+    "@boilerz/logger": "^1.1.11",
     "@boilerz/prettier-config": "^1.0.3",
     "@boilerz/tsconfig": "^1.3.2",
     "@sentry/node": "^6.0.2",
