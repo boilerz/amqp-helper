@@ -15,11 +15,3 @@ npx install-peerdeps @boilerz/amqp-helper
 ### Usage
 
 @see code [examples](./examples/)
-
-### Release
-
-```bash
-yarn version
-yarn build
-yarn publish dist --access public
-```
