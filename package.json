@@ -22,7 +22,7 @@
     "lodash": "^4.17.20"
   },
   "devDependencies": {
-    "@boilerz/build-tools": "^1.4.6",
+    "@boilerz/build-tools": "^1.4.8",
     "@boilerz/eslint-config": "^2.0.4",
     "@boilerz/logger": "^1.1.11",
     "@boilerz/prettier-config": "^1.0.3",
