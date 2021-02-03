@@ -292,12 +292,12 @@
     eslint-plugin-react "^7.22.0"
     eslint-plugin-react-hooks "^4.2.0"
 
-"@boilerz/logger@^1.1.12":
-  version "1.1.12"
-  resolved "https://registry.yarnpkg.com/@boilerz/logger/-/logger-1.1.12.tgz#1a71b3de0d1d3bf41ea9e875722e6e017f747b60"
-  integrity sha512-2Pa5G6JpMdgbxQcb5kvD5GlefViLYMdS4sJf8KLioLFMlBuOEd7G6xghny29pG3ZSmC4irDvB82WnjJvJiAaWw==
+"@boilerz/logger@^1.1.13":
+  version "1.1.13"
+  resolved "https://registry.yarnpkg.com/@boilerz/logger/-/logger-1.1.13.tgz#da533a14296b31841229e79fed056a8920f0aba1"
+  integrity sha512-JGAJPskLelqTywMIdjk0pBUXzt5wucnsxPmBMd1c6WMy5SdsRXHosFWpwgbaN3DAvSiISOQ2cpxR5xev5DTc6A==
   dependencies:
-    "@sentry/types" "^6.0.1"
+    "@sentry/types" "^6.0.4"
     "@types/bunyan" "^1.8.6"
     bunyan "^1.8.15"
     bunyan-sentry-stream "^1.2.1"
@@ -586,7 +586,7 @@
     "@sentry/utils" "6.0.4"
     tslib "^1.9.3"
 
-"@sentry/types@6.0.4", "@sentry/types@^6.0.1":
+"@sentry/types@6.0.4", "@sentry/types@^6.0.4":
   version "6.0.4"
   resolved "https://registry.yarnpkg.com/@sentry/types/-/types-6.0.4.tgz#762949dc4ba25f4071c405f67ddc28c84b6dc08f"
   integrity sha512-VqmnhJPpPmsu4gMzSZw8UHgYlP1QSikMZ5X6E3q6zwmbWu+2oniQHD6xGB6PXv6uTo5zg2NseQEiWnEjJRUYWw==
