@@ -39,7 +39,7 @@
     "prettier": "^2.2.1",
     "ts-jest": "^25.5.1",
     "ts-node-dev": "^1.1.1",
-    "typescript": "^3"
+    "typescript": "^4.1.5"
   },
   "dependencies": {
     "waait": "^1.0.5"
