@@ -6,41 +6,39 @@ import logger from '@boilerz/logger';
 
 import Client, { ClientOptions } from './Client';
 
-export type OnMessageHandler<M = any> = (
-  message: M,
-  rootingKey?: string,
+export type MessageRecord = Record<string, any>;
+
+export type OnMessageHandler<Msg extends MessageRecord> = (
+  message: Msg,
+  RoutingKey?: string,
 ) => Promise<void>;
 
 export type OnMessageHandlerRecord<
-  Msg extends Record<string, any>,
+  Msg extends MessageRecord,
   RKey extends keyof any
 > = Record<RKey, OnMessageHandler<Msg>>;
 
-export interface ConsumerClientOptions<
-  Msg extends Record<string, any>,
-  RKey extends keyof any
-> extends Partial<ClientOptions> {
+export interface ConsumerClientOptions extends Partial<ClientOptions> {
   queueName?: string;
   queueOptions?: Options.AssertQueue;
   nAckThrottle?: number;
 }
 
 export interface SingleHandlerConsumerClientOptions<
-  Msg extends Record<string, any> = any,
-  RKey extends keyof any = ''
-> extends ConsumerClientOptions<Msg, RKey> {
+  Msg extends MessageRecord = any
+> extends ConsumerClientOptions {
   onMessageHandler: OnMessageHandler<Msg>;
 }
 
 export interface MultiHandlersConsumerClientOptions<
-  Msg extends Record<string, any>,
+  Msg extends MessageRecord,
   RKey extends keyof any
-> extends ConsumerClientOptions<Msg, RKey> {
-  onMessageHandlerByRootingKey: OnMessageHandlerRecord<Msg, RKey>;
+> extends ConsumerClientOptions {
+  onMessageHandlerByRoutingKey: OnMessageHandlerRecord<Msg, RKey>;
 }
 
 class ConsumerClient<
-  Msg extends Record<string, any> = any,
+  Msg extends MessageRecord = any,
   RKey extends keyof any = ''
 > extends Client {
   private readonly queueOptions: Options.AssertQueue;
@@ -51,12 +49,12 @@ class ConsumerClient<
 
   private readonly onMessageHandler?: OnMessageHandler<Msg>;
 
-  private readonly onMessageHandlerByRootingKey?: OnMessageHandlerRecord<
+  private readonly onMessageHandlerByRoutingKey?: OnMessageHandlerRecord<
     Msg,
     RKey
   >;
 
-  constructor(options: SingleHandlerConsumerClientOptions<Msg, RKey>);
+  constructor(options: SingleHandlerConsumerClientOptions<Msg>);
 
   constructor(options: MultiHandlersConsumerClientOptions<Msg, RKey>);
 
@@ -66,26 +64,23 @@ class ConsumerClient<
     nAckThrottle = 0,
     ...singleOrMultiOptions
   }:
-    | SingleHandlerConsumerClientOptions<Msg, RKey>
+    | SingleHandlerConsumerClientOptions<Msg>
     | MultiHandlersConsumerClientOptions<Msg, RKey>) {
     super(
       _.omit(
         singleOrMultiOptions,
         'onMessageHandler',
-        'onMessageHandlerByRootingKey',
+        'onMessageHandlerByRoutingKey',
       ),
     );
     this.queueName = queueName;
     this.queueOptions = queueOptions;
     this.nAckThrottle = nAckThrottle;
-    this.onMessageHandler = (singleOrMultiOptions as SingleHandlerConsumerClientOptions<
+    this.onMessageHandler = (singleOrMultiOptions as SingleHandlerConsumerClientOptions<Msg>).onMessageHandler;
+    this.onMessageHandlerByRoutingKey = (singleOrMultiOptions as MultiHandlersConsumerClientOptions<
       Msg,
       RKey
-    >).onMessageHandler;
-    this.onMessageHandlerByRootingKey = (singleOrMultiOptions as MultiHandlersConsumerClientOptions<
-      Msg,
-      RKey
-    >).onMessageHandlerByRootingKey;
+    >).onMessageHandlerByRoutingKey;
   }
 
   async setup(): Promise<void> {
@@ -97,9 +92,9 @@ class ConsumerClient<
     this.queueName = actualQueueName;
     logger.info({ actualQueueName }, '[amqp-helper] setup');
 
-    if (this.onMessageHandlerByRootingKey) {
+    if (this.onMessageHandlerByRoutingKey) {
       await Promise.all(
-        Object.keys(this.onMessageHandlerByRootingKey).map((routingKey) =>
+        Object.keys(this.onMessageHandlerByRoutingKey).map((routingKey) =>
           this.channel.bindQueue(
             this.queueName,
             this.options.exchangeName,
@@ -117,33 +112,33 @@ class ConsumerClient<
   }
 
   static async createAndSetupClient<
-    Msg extends Record<string, any> = any,
-    RKey extends keyof any = ''
+    Message extends MessageRecord = any,
+    RoutingKey extends keyof any = ''
   >(
-    options: SingleHandlerConsumerClientOptions<Msg, RKey>,
-  ): Promise<ConsumerClient<Msg, RKey>>;
+    options: SingleHandlerConsumerClientOptions<Message>,
+  ): Promise<ConsumerClient<Message, RoutingKey>>;
 
   static async createAndSetupClient<
-    Msg extends Record<string, any> = any,
-    RKey extends keyof any = ''
+    Message extends MessageRecord = any,
+    RoutingKey extends keyof any = ''
   >(
-    options: MultiHandlersConsumerClientOptions<Msg, RKey>,
-  ): Promise<ConsumerClient<Msg, RKey>>;
+    options: MultiHandlersConsumerClientOptions<Message, RoutingKey>,
+  ): Promise<ConsumerClient<Message, RoutingKey>>;
 
   static async createAndSetupClient<
-    Msg extends Record<string, any> = any,
-    RKey extends keyof any = ''
+    Message extends MessageRecord = any,
+    RoutingKey extends keyof any = ''
   >(
     options:
-      | SingleHandlerConsumerClientOptions<Msg, RKey>
-      | MultiHandlersConsumerClientOptions<Msg, RKey>,
-  ): Promise<ConsumerClient<Msg, RKey>> {
+      | SingleHandlerConsumerClientOptions<Message>
+      | MultiHandlersConsumerClientOptions<Message, RoutingKey>,
+  ): Promise<ConsumerClient<Message, RoutingKey> | ConsumerClient<Message>> {
     const client = _.has(options, 'onMessageHandler')
       ? new ConsumerClient(
-          options as SingleHandlerConsumerClientOptions<Msg, RKey>,
+          options as SingleHandlerConsumerClientOptions<Message>,
         )
       : new ConsumerClient(
-          options as MultiHandlersConsumerClientOptions<Msg, RKey>,
+          options as MultiHandlersConsumerClientOptions<Message, RoutingKey>,
         );
     await client.setup();
 
@@ -168,7 +163,7 @@ class ConsumerClient<
             await this.onMessageHandler(message, routingKey as string);
           } else {
             // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            const handler = this.onMessageHandlerByRootingKey![routingKey];
+            const handler = this.onMessageHandlerByRoutingKey![routingKey];
             if (handler) {
               await handler(message);
             } else {

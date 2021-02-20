@@ -1,15 +1,15 @@
 import logger from '@boilerz/logger';
 
 import ConsumerClient from '../src/ConsumerClient';
-import type { Message, RootingKey } from './publisher';
+import type { Message, RoutingKey } from './publisher';
 
 async function multiHandlerConsumerMain(): Promise<void> {
   const consumerClient = await ConsumerClient.createAndSetupClient<
     Message,
-    RootingKey
+    RoutingKey
   >({
     queueName: 'hello-goodbye-queue',
-    onMessageHandlerByRootingKey: {
+    onMessageHandlerByRoutingKey: {
       async hello(message: Message): Promise<void> {
         logger.info({ message }, 'hello');
       },
