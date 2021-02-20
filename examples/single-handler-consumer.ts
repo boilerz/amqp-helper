@@ -6,8 +6,8 @@ import type { Message } from './publisher';
 async function singleHandlerConsumerMain(): Promise<void> {
   const consumerClient = await ConsumerClient.createAndSetupClient<Message>({
     queueName: 'hello-goodbye-queue',
-    async onMessageHandler(message, rootingKey): Promise<void> {
-      logger.info({ message, rootingKey }, 'single handler consumer');
+    async onMessageHandler(message, routingKey): Promise<void> {
+      logger.info({ message, routingKey }, 'single handler consumer');
     },
   });
 

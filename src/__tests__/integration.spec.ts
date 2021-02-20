@@ -1,14 +1,14 @@
 import ConsumerClient from '../ConsumerClient';
 import PublisherClient from '../PublisherClient';
 
-export type RootingKey = 'hello' | 'goodbye';
+export type RoutingKey = 'hello' | 'goodbye';
 
 export type Message = {
   name: string;
 };
 
 describe('Publisher/Consumer integration test', () => {
-  let publisherClient: PublisherClient<Message, RootingKey | ''>;
+  let publisherClient: PublisherClient<Message, RoutingKey | ''>;
   let consumerClient: ConsumerClient<Message, any>;
   let handlerSpy: jest.Mock;
 
@@ -26,12 +26,12 @@ describe('Publisher/Consumer integration test', () => {
   it('single handler scenario', async () => {
     publisherClient = await PublisherClient.createAndSetupClient<
       Message,
-      RootingKey
+      RoutingKey
     >();
     consumerClient = await ConsumerClient.createAndSetupClient<Message>({
       queueOptions: { exclusive: true },
-      async onMessageHandler(message, rootingKey): Promise<void> {
-        handlerSpy({ message, rootingKey }, 'single handler consumer');
+      async onMessageHandler(message, routingKey): Promise<void> {
+        handlerSpy({ message, routingKey }, 'single handler consumer');
       },
     });
 
@@ -49,7 +49,7 @@ describe('Publisher/Consumer integration test', () => {
               "message": Object {
                 "name": "John Doe",
               },
-              "rootingKey": "",
+              "routingKey": "",
             },
             "single handler consumer",
           ],
@@ -67,14 +67,14 @@ describe('Publisher/Consumer integration test', () => {
   it('multi handler scenario', async () => {
     publisherClient = await PublisherClient.createAndSetupClient<
       Message,
-      RootingKey
+      RoutingKey
     >();
     consumerClient = await ConsumerClient.createAndSetupClient<
       Message,
-      RootingKey
+      RoutingKey
     >({
       queueOptions: { exclusive: true },
-      onMessageHandlerByRootingKey: {
+      onMessageHandlerByRoutingKey: {
         async hello(message: Message): Promise<void> {
           handlerSpy({ message }, 'hello');
         },
