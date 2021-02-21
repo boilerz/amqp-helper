@@ -3,6 +3,7 @@
   "rules": {
     "no-useless-constructor": "off",
     "no-dupe-class-members": "off",
+    "no-underscore-dangle": "off",
     "@typescript-eslint/no-explicit-any": "off"
   }
 }

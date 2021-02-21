@@ -13,9 +13,9 @@ export interface ClientOptions {
 abstract class Client {
   protected readonly options: ClientOptions;
 
-  protected connexion: Connection;
+  protected _connection?: Connection;
 
-  protected channel: Channel;
+  protected _channel?: Channel;
 
   private static defaultOptions: ClientOptions = {
     amqpUrl: 'amqp://localhost',
@@ -33,9 +33,19 @@ abstract class Client {
     };
   }
 
+  get channel(): Channel {
+    if (!this._channel) throw new Error('Channel not initialized');
+    return this._channel;
+  }
+
+  get connection(): Connection {
+    if (!this._connection) throw new Error('Connexion not initialized');
+    return this._connection;
+  }
+
   async setup(): Promise<void> {
-    this.connexion = await amqplib.connect(this.options.amqpUrl);
-    this.channel = await this.connexion.createChannel();
+    this._connection = await amqplib.connect(this.options.amqpUrl);
+    this._channel = await this.connection.createChannel();
 
     await this.channel.assertExchange(
       this.options.exchangeName,
@@ -46,7 +56,7 @@ abstract class Client {
 
   async tearDown(): Promise<void> {
     await this.channel.close();
-    await this.connexion.close();
+    await this.connection.close();
   }
 }
 
