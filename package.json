@@ -18,7 +18,7 @@
   },
   "peerDependencies": {
     "@boilerz/logger": "^1.1.18",
-    "amqplib": "^0.6.0",
+    "amqplib": "^0.7.0",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
@@ -32,7 +32,7 @@
     "@types/amqplib": "^0.5.17",
     "@types/jest": "^26.0.20",
     "@types/lodash": "^4.14.168",
-    "amqplib": "^0.6.0",
+    "amqplib": "^0.7.0",
     "codecov": "^3.8.1",
     "eslint": "^7.20.0",
     "jest": "^26.6.3",
