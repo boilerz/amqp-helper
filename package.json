@@ -27,7 +27,7 @@
     "@boilerz/eslint-config": "^2.0.20",
     "@boilerz/jest-config": "^1.0.6",
     "@boilerz/logger": "^1.1.21",
-    "@boilerz/prettier-config": "^1.0.3",
+    "@boilerz/prettier-config": "^1.0.4",
     "@boilerz/tsconfig": "^1.4.8",
     "@boilerz/tsconfig-production": "^1.4.7",
     "@sentry/node": "^6.2.3",
