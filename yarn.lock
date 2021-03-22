@@ -329,12 +329,12 @@
     lodash.omit "^4.5.0"
     ts-jest "^26.5.3"
 
-"@boilerz/logger@^1.1.21":
-  version "1.1.21"
-  resolved "https://registry.yarnpkg.com/@boilerz/logger/-/logger-1.1.21.tgz#c2cb0fa90fae9ac3af8d1b48a589d8264180f0c0"
-  integrity sha512-/1K4tL/hEg9FYNTY4CKfewMSGOinIik5AAGryfZWDAyspGHsLvF3e7Rp1cFxvLkw8SwDIqd1w7xmB2uBnjy1lg==
+"@boilerz/logger@^1.1.22":
+  version "1.1.22"
+  resolved "https://registry.yarnpkg.com/@boilerz/logger/-/logger-1.1.22.tgz#8316efcc83d78d82433d3681031a56bdb4d2f2d0"
+  integrity sha512-+DEEyG6egk0PNoh6kcHijKAg1dF+VyKLXvYkrXwkMG1J3281+mwOmLkWZsHFhOEai7Fs+P/vnnegND/2u7Lq7Q==
   dependencies:
-    "@sentry/types" "^6.2.1"
+    "@sentry/types" "^6.2.2"
     "@types/bunyan" "^1.8.6"
     bunyan "^1.8.15"
     bunyan-sentry-stream "^1.2.1"
@@ -644,7 +644,7 @@
     "@sentry/utils" "6.2.3"
     tslib "^1.9.3"
 
-"@sentry/types@6.2.3", "@sentry/types@^6.2.1":
+"@sentry/types@6.2.3", "@sentry/types@^6.2.2":
   version "6.2.3"
   resolved "https://registry.yarnpkg.com/@sentry/types/-/types-6.2.3.tgz#0c06a475a51d28c73a69b05f0d43db05310ec241"
   integrity sha512-BpA+9FherWgYlkMD/82bGFh/gAqZNlZX5UE8vWLKyyzNyOEEz3v9ScxE8dOSWE4v5iXJR1O3jjxaTcRQxPVgCA==
