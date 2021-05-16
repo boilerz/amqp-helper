@@ -15,7 +15,7 @@ export type OnMessageHandler<Msg extends MessageRecord> = (
 
 export type OnMessageHandlerRecord<
   Msg extends MessageRecord,
-  RKey extends keyof any
+  RKey extends keyof any,
 > = Record<RKey, OnMessageHandler<Msg>>;
 
 export interface ConsumerClientOptions extends Partial<ClientOptions> {
@@ -25,21 +25,21 @@ export interface ConsumerClientOptions extends Partial<ClientOptions> {
 }
 
 export interface SingleHandlerConsumerClientOptions<
-  Msg extends MessageRecord = any
+  Msg extends MessageRecord = any,
 > extends ConsumerClientOptions {
   onMessageHandler: OnMessageHandler<Msg>;
 }
 
 export interface MultiHandlersConsumerClientOptions<
   Msg extends MessageRecord,
-  RKey extends keyof any
+  RKey extends keyof any,
 > extends ConsumerClientOptions {
   onMessageHandlerByRoutingKey: OnMessageHandlerRecord<Msg, RKey>;
 }
 
 class ConsumerClient<
   Msg extends MessageRecord = any,
-  RKey extends keyof any = ''
+  RKey extends keyof any = '',
 > extends Client {
   private readonly queueOptions: Options.AssertQueue;
 
@@ -76,11 +76,12 @@ class ConsumerClient<
     this.queueName = queueName;
     this.queueOptions = queueOptions;
     this.nAckThrottle = nAckThrottle;
-    this.onMessageHandler = (singleOrMultiOptions as SingleHandlerConsumerClientOptions<Msg>).onMessageHandler;
-    this.onMessageHandlerByRoutingKey = (singleOrMultiOptions as MultiHandlersConsumerClientOptions<
-      Msg,
-      RKey
-    >).onMessageHandlerByRoutingKey;
+    this.onMessageHandler = (
+      singleOrMultiOptions as SingleHandlerConsumerClientOptions<Msg>
+    ).onMessageHandler;
+    this.onMessageHandlerByRoutingKey = (
+      singleOrMultiOptions as MultiHandlersConsumerClientOptions<Msg, RKey>
+    ).onMessageHandlerByRoutingKey;
   }
 
   async setup(): Promise<void> {
@@ -113,21 +114,21 @@ class ConsumerClient<
 
   static async createAndSetupClient<
     Message extends MessageRecord = any,
-    RoutingKey extends keyof any = ''
+    RoutingKey extends keyof any = '',
   >(
     options: SingleHandlerConsumerClientOptions<Message>,
   ): Promise<ConsumerClient<Message, RoutingKey>>;
 
   static async createAndSetupClient<
     Message extends MessageRecord = any,
-    RoutingKey extends keyof any = ''
+    RoutingKey extends keyof any = '',
   >(
     options: MultiHandlersConsumerClientOptions<Message, RoutingKey>,
   ): Promise<ConsumerClient<Message, RoutingKey>>;
 
   static async createAndSetupClient<
     Message extends MessageRecord = any,
-    RoutingKey extends keyof any = ''
+    RoutingKey extends keyof any = '',
   >(
     options:
       | SingleHandlerConsumerClientOptions<Message>

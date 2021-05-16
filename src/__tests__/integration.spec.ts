@@ -16,12 +16,10 @@ describe('Publisher/Consumer integration test', () => {
     handlerSpy = jest.fn();
   });
 
-  afterEach(
-    async (): Promise<void> => {
-      await publisherClient.tearDown();
-      await consumerClient.tearDown();
-    },
-  );
+  afterEach(async (): Promise<void> => {
+    await publisherClient.tearDown();
+    await consumerClient.tearDown();
+  });
 
   it('single handler scenario', async () => {
     publisherClient = await PublisherClient.createAndSetupClient<
