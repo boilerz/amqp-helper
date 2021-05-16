@@ -8,7 +8,7 @@ export interface PublishOptions extends Options.Publish {
 
 class PublisherClient<
   Msg extends Record<string, any>,
-  RKey extends keyof any = ''
+  RKey extends keyof any = '',
 > extends Client {
   constructor(options: Partial<ClientOptions> = {}) {
     super(options);
@@ -16,7 +16,7 @@ class PublisherClient<
 
   static async createAndSetupClient<
     Message extends Record<string, any>,
-    RoutingKey extends keyof any = ''
+    RoutingKey extends keyof any = '',
   >(
     options: Partial<ClientOptions> = {},
   ): Promise<PublisherClient<Message, RoutingKey>> {
