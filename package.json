@@ -32,7 +32,7 @@
     "@boilerz/tsconfig-production": "^1.4.12",
     "@sentry/node": "^6.7.1",
     "@types/amqplib": "^0.8.1",
-    "@types/jest": "^26.0.23",
+    "@types/jest": "^26.0.24",
     "@types/lodash": "^4.14.171",
     "amqplib": "^0.8.0",
     "codecov": "^3.8.2",
