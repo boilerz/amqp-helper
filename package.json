@@ -30,7 +30,7 @@
     "@boilerz/prettier-config": "^1.0.4",
     "@boilerz/tsconfig": "^1.4.13",
     "@boilerz/tsconfig-production": "^1.4.13",
-    "@sentry/node": "^6.16.1",
+    "@sentry/node": "^6.17.6",
     "@types/amqplib": "^0.8.2",
     "@types/jest": "^27.0.3",
     "@types/lodash": "^4.14.178",
