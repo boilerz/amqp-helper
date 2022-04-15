@@ -329,13 +329,13 @@
     lodash.omit "^4.5.0"
     ts-jest "^26.5.6"
 
-"@boilerz/logger@^1.1.31":
-  version "1.1.31"
-  resolved "https://registry.yarnpkg.com/@boilerz/logger/-/logger-1.1.31.tgz#af6ada7dea6daf428481b66c7954ca596d85fa44"
-  integrity sha512-AOsCwK9O9sacIO+qbbazgB5bJFPj9UswDeJ7CGbjSreb6EcTRbLELXxYSo4JBpD3qVF/Z0QG9laFCtXxNmSSww==
+"@boilerz/logger@^1.1.32":
+  version "1.1.32"
+  resolved "https://registry.yarnpkg.com/@boilerz/logger/-/logger-1.1.32.tgz#eca92d055682fc93bde5f89f86593f751a0f5383"
+  integrity sha512-eU7ln136os+zWnSqgTkopK42xauuCpJjzXe+sB2CroiBRpbQPR1yDg+gmBWftCqeUS9AKPhv1UuF4zn9XF412w==
   dependencies:
-    "@sentry/types" "^6.10.0"
-    "@types/bunyan" "^1.8.7"
+    "@sentry/types" "^6.12.0"
+    "@types/bunyan" "^1.8.8"
     bunyan "^1.8.15"
     bunyan-sentry-stream "^1.2.1"
     read-pkg "^5.2.0"
@@ -657,7 +657,7 @@
     lru_map "^0.3.3"
     tslib "^1.9.3"
 
-"@sentry/types@6.19.6", "@sentry/types@^6.10.0":
+"@sentry/types@6.19.6", "@sentry/types@^6.12.0":
   version "6.19.6"
   resolved "https://registry.yarnpkg.com/@sentry/types/-/types-6.19.6.tgz#70513f9dca05d23d7ab9c2a6cb08d4db6763ca67"
   integrity sha512-QH34LMJidEUPZK78l+Frt3AaVFJhEmIi05Zf8WHd9/iTt+OqvCHBgq49DDr1FWFqyYWm/QgW/3bIoikFpfsXyQ==
@@ -758,10 +758,10 @@
   resolved "https://registry.yarnpkg.com/@types/bluebird/-/bluebird-3.5.32.tgz#381e7b59e39f010d20bbf7e044e48f5caf1ab620"
   integrity sha512-dIOxFfI0C+jz89g6lQ+TqhGgPQ0MxSnh/E4xuC0blhFtyW269+mPG5QeLgbdwst/LvdP8o1y0o/Gz5EHXLec/g==
 
-"@types/bunyan@^1.8.7":
-  version "1.8.7"
-  resolved "https://registry.yarnpkg.com/@types/bunyan/-/bunyan-1.8.7.tgz#63cc65b5ecff6217d1509409a575e7b991f80831"
-  integrity sha512-jaNt6xX5poSmXuDAkQrSqx2zkR66OrdRDuVnU8ldvn3k/Ci/7Sf5nooKspQWimDnw337Bzt/yirqSThTjvrHkg==
+"@types/bunyan@^1.8.8":
+  version "1.8.8"
+  resolved "https://registry.yarnpkg.com/@types/bunyan/-/bunyan-1.8.8.tgz#8d6d33f090f37c07e2a80af30ae728450a101008"
+  integrity sha512-Cblq+Yydg3u+sGiz2mjHjC5MPmdjY+No4qvHrF+BUhblsmSfMvsHLbOG62tPbonsqBj6sbWv1LHcsoe5Jw+/Ow==
   dependencies:
     "@types/node" "*"
 
