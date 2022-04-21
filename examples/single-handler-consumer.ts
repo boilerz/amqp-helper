@@ -14,7 +14,7 @@ async function singleHandlerConsumerMain(): Promise<void> {
   await consumerClient.consume();
 }
 
-if (!module.parent) {
+if (require.main === module) {
   singleHandlerConsumerMain().catch((err) =>
     logger.error({ err }, '[single-handler-consumer]'),
   );

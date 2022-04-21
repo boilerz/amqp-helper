@@ -28,6 +28,6 @@ async function publisherMain(): Promise<void> {
   );
 }
 
-if (!module.parent) {
+if (require.main === module) {
   publisherMain().catch((err) => logger.error({ err }, '[publisher]'));
 }

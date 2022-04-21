@@ -22,7 +22,7 @@ async function multiHandlerConsumerMain(): Promise<void> {
   await consumerClient.consume();
 }
 
-if (!module.parent) {
+if (require.main === module) {
   multiHandlerConsumerMain().catch((err) =>
     logger.error({ err }, '[multi-handlers-consumer]'),
   );
