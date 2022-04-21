@@ -25,7 +25,7 @@
   "devDependencies": {
     "@boilerz/build-tools": "^1.5.8",
     "@boilerz/eslint-config": "^2.0.36",
-    "@boilerz/jest-config": "^1.0.9",
+    "@boilerz/jest-config": "^1.0.11",
     "@boilerz/logger": "^1.1.32",
     "@boilerz/prettier-config": "^1.0.4",
     "@boilerz/tsconfig": "^1.4.14",
@@ -37,7 +37,7 @@
     "amqplib": "^0.8.0",
     "codecov": "^3.8.3",
     "eslint": "^7.32.0",
-    "jest": "^26.6.3",
+    "jest": "^27.5.1",
     "lodash": "^4.17.21",
     "prettier": "^2.6.2",
     "ts-node-dev": "^1.1.8",
