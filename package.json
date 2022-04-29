@@ -41,7 +41,7 @@
     "lodash": "^4.17.21",
     "prettier": "^2.6.2",
     "ts-node-dev": "^1.1.8",
-    "typescript": "^4.6.3"
+    "typescript": "^4.6.4"
   },
   "dependencies": {
     "waait": "^1.0.5"
