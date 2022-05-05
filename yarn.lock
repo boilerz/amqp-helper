@@ -390,14 +390,14 @@
     eslint-plugin-react "^7.28.0"
     eslint-plugin-react-hooks "^4.3.0"
 
-"@boilerz/jest-config@^1.0.15":
-  version "1.0.15"
-  resolved "https://registry.yarnpkg.com/@boilerz/jest-config/-/jest-config-1.0.15.tgz#f17550770431be010fbca1dea331d701a2440729"
-  integrity sha512-lh1uIlPqAZ6ZDyzWwC5ml8UuX9UiAi4iDPnTXi6hZ4UHBIZNVbWFfOwrRs3dpUsO9RkLa9TrBP3sa3N3KCds9w==
+"@boilerz/jest-config@^1.0.16":
+  version "1.0.16"
+  resolved "https://registry.yarnpkg.com/@boilerz/jest-config/-/jest-config-1.0.16.tgz#b7a2456ffde8d3e5a1e059ef411edab99f4c1c34"
+  integrity sha512-aeOJzKnGn7MdDS848u0N7tz6uOrOAbIQIUgTXremyF8hefUBVQDmFABkNKhu0RjPlcNZm33kC8SmVOQsrKlYFQ==
   dependencies:
     jest-config "^28.0.3"
     lodash.omit "^4.5.0"
-    ts-jest "^28.0.0"
+    ts-jest "^28.0.1"
 
 "@boilerz/logger@^1.1.34":
   version "1.1.34"
@@ -4206,7 +4206,7 @@ tree-kill@^1.2.2:
   resolved "https://registry.yarnpkg.com/tree-kill/-/tree-kill-1.2.2.tgz#4ca09a9092c88b73a7cdc5e8a01b507b0790a0cc"
   integrity sha512-L0Orpi8qGpRG//Nd+H90vFB+3iHnue1zSSGmNOOCh1GLJ7rUKVwV2HvijphGQS2UmhUZewS9VgvxYIdgr+fG1A==
 
-ts-jest@^28.0.0:
+ts-jest@^28.0.1:
   version "28.0.1"
   resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-28.0.1.tgz#626b4d7d5c386f88f4813d959ffc4ca0a8ffef96"
   integrity sha512-PbkbitaT/9ZYAqqzk3UYTvCq080Seo46T3m/AdwcZ0D8WH2uBhG6PvA8oOAWsZIknzPQU66fYobvFCL8IqIhmg==
