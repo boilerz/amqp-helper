@@ -390,14 +390,14 @@
     eslint-plugin-react "^7.28.0"
     eslint-plugin-react-hooks "^4.3.0"
 
-"@boilerz/jest-config@^1.0.18":
-  version "1.0.18"
-  resolved "https://registry.yarnpkg.com/@boilerz/jest-config/-/jest-config-1.0.18.tgz#cd391746fea5f5398af172afbbf39620a751a179"
-  integrity sha512-9L77e2Zo2Uuo1RzleTl2VYR6JvEYY6d5tFfiq8UFH3jt28kBK7+BnvLcq7mVG2CmVDbB+M72iqzWVj3RK1L7RA==
+"@boilerz/jest-config@^1.0.19":
+  version "1.0.19"
+  resolved "https://registry.yarnpkg.com/@boilerz/jest-config/-/jest-config-1.0.19.tgz#83113da565f47cb60e451b3e6dba231da2e4e587"
+  integrity sha512-K4xN9XocmczglBnLYxcR7Kr7QbRHScipMFsLq1ND7goLeIGS+z6so4DfnpOZQuzDUn/TRyuYE+s9onu+HN/MQQ==
   dependencies:
     jest-config "^28.1.0"
     lodash.omit "^4.5.0"
-    ts-jest "^28.0.2"
+    ts-jest "^28.0.3"
 
 "@boilerz/logger@^1.1.34":
   version "1.1.34"
@@ -3093,13 +3093,6 @@ json-stable-stringify-without-jsonify@^1.0.1:
   resolved "https://registry.yarnpkg.com/json-stable-stringify-without-jsonify/-/json-stable-stringify-without-jsonify-1.0.1.tgz#9db7b59496ad3f3cfef30a75142d2d930ad72651"
   integrity sha1-nbe1lJatPzz+8wp1FC0tkwrXJlE=
 
-json5@2.x:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/json5/-/json5-2.2.0.tgz#2dfefe720c6ba525d9ebd909950f0515316c89a3"
-  integrity sha512-f+8cldu7X/y7RAJurMEJmdoKXGB/X550w2Nr3tTbezL6RwEE/iMcm+tZnXeoZtKuOq6ft8+CqzEkrIgx1fPoQA==
-  dependencies:
-    minimist "^1.2.5"
-
 json5@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/json5/-/json5-1.0.1.tgz#779fb0018604fa854eacbf6252180d83543e3dbe"
@@ -4225,15 +4218,15 @@ tree-kill@^1.2.2:
   resolved "https://registry.yarnpkg.com/tree-kill/-/tree-kill-1.2.2.tgz#4ca09a9092c88b73a7cdc5e8a01b507b0790a0cc"
   integrity sha512-L0Orpi8qGpRG//Nd+H90vFB+3iHnue1zSSGmNOOCh1GLJ7rUKVwV2HvijphGQS2UmhUZewS9VgvxYIdgr+fG1A==
 
-ts-jest@^28.0.2:
-  version "28.0.2"
-  resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-28.0.2.tgz#e4026357006731f96a033b94db89d01e0d3c0591"
-  integrity sha512-IOZMb3D0gx6IHO9ywPgiQxJ3Zl4ECylEFwoVpENB55aTn5sdO0Ptyx/7noNBxAaUff708RqQL4XBNxxOVjY0vQ==
+ts-jest@^28.0.3:
+  version "28.0.3"
+  resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-28.0.3.tgz#d1c47f167e56eef3989bb51afaf7fc1c87a04c52"
+  integrity sha512-HzgbEDQ2KgVtDmpXToqAcKTyGHdHsG23i/iUjfxji92G5eT09S1m9UHZd7csF0Bfgh9txM4JzwHnv7r1waFPlw==
   dependencies:
     bs-logger "0.x"
     fast-json-stable-stringify "2.x"
     jest-util "^28.0.0"
-    json5 "2.x"
+    json5 "^2.2.1"
     lodash.memoize "4.x"
     make-error "1.x"
     semver "7.x"
