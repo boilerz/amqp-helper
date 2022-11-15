@@ -963,12 +963,11 @@
   resolved "https://registry.yarnpkg.com/@tsconfig/node16/-/node16-1.0.2.tgz#423c77877d0569db20e1fc80885ac4118314010e"
   integrity sha512-eZxlbI8GZscaGS7kkc/trHTT5xgrjH3/1n2JDwusC9iahPKWMRvRjJSAN5mCXviuTGQ/lHnhvv8Q1YTpnfz9gA==
 
-"@types/amqplib@^0.8.2":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@types/amqplib/-/amqplib-0.8.2.tgz#9c46f2c7fac381e4f81bcb612c00d54549697d22"
-  integrity sha512-p+TFLzo52f8UanB+Nq6gyUi65yecAcRY3nYowU6MPGFtaJvEDxcnFWrxssSTkF+ts1W3zyQDvgVICLQem5WxRA==
+"@types/amqplib@^0.10.0":
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/@types/amqplib/-/amqplib-0.10.0.tgz#41c54c82e37fa9b57b147299f8c044013d7559c5"
+  integrity sha512-39XGMpfVGqjYK+LjPqMb/98rm/KwZCfJj5S1K2lGg9PqzhUQek5iFhrtgOLQGw5QbArsPYCTj7ElEJpP3Hhb1w==
   dependencies:
-    "@types/bluebird" "*"
     "@types/node" "*"
 
 "@types/babel__core@^7.1.14":
@@ -1003,11 +1002,6 @@
   integrity sha512-74fNdUGrWsgIB/V9kTO5FGHPWYY6Eqn+3Z7L6Hc4e/BxjYV7puvBqp5HwsVYYfLm6iURYBNCx4Ut37OF9yitCw==
   dependencies:
     "@babel/types" "^7.3.0"
-
-"@types/bluebird@*":
-  version "3.5.32"
-  resolved "https://registry.yarnpkg.com/@types/bluebird/-/bluebird-3.5.32.tgz#381e7b59e39f010d20bbf7e044e48f5caf1ab620"
-  integrity sha512-dIOxFfI0C+jz89g6lQ+TqhGgPQ0MxSnh/E4xuC0blhFtyW269+mPG5QeLgbdwst/LvdP8o1y0o/Gz5EHXLec/g==
 
 "@types/bunyan@^1.8.8":
   version "1.8.8"
