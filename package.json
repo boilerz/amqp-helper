@@ -28,7 +28,7 @@
     "@boilerz/jest-config": "^1.0.30",
     "@boilerz/logger": "^1.1.63",
     "@boilerz/prettier-config": "^1.0.4",
-    "@boilerz/tsconfig": "^1.4.15",
+    "@boilerz/tsconfig": "^1.4.16",
     "@boilerz/tsconfig-production": "^1.4.16",
     "@sentry/node": "^7.18.0",
     "@types/amqplib": "^0.10.0",
