@@ -31,7 +31,7 @@
     "@boilerz/tsconfig": "^1.4.16",
     "@boilerz/tsconfig-production": "^1.4.16",
     "@sentry/node": "^7.27.0",
-    "@types/amqplib": "^0.10.0",
+    "@types/amqplib": "^0.10.1",
     "@types/jest": "^28.1.8",
     "@types/lodash": "^4.14.191",
     "amqplib": "^0.10.3",
