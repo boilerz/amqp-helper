@@ -420,10 +420,10 @@
     lodash.omit "^4.5.0"
     ts-jest "^28.0.8"
 
-"@boilerz/logger@^1.1.89":
-  version "1.1.89"
-  resolved "https://registry.yarnpkg.com/@boilerz/logger/-/logger-1.1.89.tgz#371be1354a928c7280951f4a4bb15ecdc8edb074"
-  integrity sha512-FxpevD9EZoCilvI9sg24EL1R3VSW0r+HVzoSw9uT9yP9MS1+JdDk47nh4gjC8TSUb9LBtb8BkQ0Dzw1KeJjpYQ==
+"@boilerz/logger@^1.1.90":
+  version "1.1.90"
+  resolved "https://registry.yarnpkg.com/@boilerz/logger/-/logger-1.1.90.tgz#fcc0b241a7e744077409829e23a14ed740a65f07"
+  integrity sha512-f+9wkYix/1qdQ2yJEmWIYpkuebYxQZ/BKCkiWKAQ24V39hkO6HgbCstC97MTjy+m6eaaLL84HysV7Xt6vqnGVA==
   dependencies:
     "@types/bunyan" "^1.8.8"
     bunyan "^1.8.15"
