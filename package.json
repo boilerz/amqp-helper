@@ -1,6 +1,6 @@
 {
   "name": "@boilerz/amqp-helper",
-  "version": "1.1.162",
+  "version": "1.1.163",
   "main": "src/index.ts",
   "repository": "git@github.com:boilerz/amqp-helper.git",
   "author": "boilerz",
