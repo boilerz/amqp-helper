@@ -33,7 +33,7 @@
     "@sentry/node": "^7.80.1",
     "@types/amqplib": "^0.10.4",
     "@types/jest": "^28.1.8",
-    "@types/lodash": "^4.14.201",
+    "@types/lodash": "^4.14.202",
     "amqplib": "^0.10.3",
     "codecov": "^3.8.3",
     "eslint": "^7.32.0",
